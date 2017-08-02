@@ -55,7 +55,7 @@ Plain =     Inlines
 
 AtxInline = !Newline !(Sp '#'* Sp Newline) Inline
 
-AtxStart =  < ( "######" | "#####" | "####" | "###" | "##" | "#" ) >
+AtxStart =  < ( "######" | "#####" | "####" | "###" | "##" | "#" ) Spacechar >
             { $$ = elem((pmh_element_type)(pmh_H1 + (strlen(yytext) - 1))); }
 
 AtxHeading = < s:AtxStart Sp ( AtxInline )+ (Sp '#'* Sp)? Newline >
